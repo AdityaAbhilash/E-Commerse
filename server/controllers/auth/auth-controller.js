@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
     });
     await newUser.save();
     res.status(200).json({
-      success: true,
+      success: true,                                // these will be in payload from ther server side 
       message: "Registration successful",
     });
   } catch (e) {
@@ -51,7 +51,7 @@ const loginUser = async (req, res) => {
       checkUser.password
     );
     if (!checkPasswordMatch)
-      return res.jason({
+      return res.json({
         success: false,
         message: "Password invalid! Please try again",
       });
@@ -116,8 +116,6 @@ const authMiddleware = async (req, res, next) => {
     })
   }
 };
-
-
 
 
 module.exports = { registerUser, loginUser, logoutUser, authMiddleware };

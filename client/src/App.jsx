@@ -29,14 +29,14 @@ function App() {
   //   role: "admin",
   // };
 
-  const{user , isAuthenticated , isLoading } = useSelector((state) => state.auth);
+  const{user , isAuthenticated , isLoading } = useSelector((state) => state.auth); // this is for loading the state 
   const dispatch = useDispatch();
 
   useEffect(() =>{
     dispatch(checkAuth())
   },[dispatch]);
 
-  if(isLoading) return <Skeleton className="w-[600px] h-[600px]" />
+  if(isLoading) return <Skeleton className="w-[600px] h-[600px]" /> // improve it later 
 
 
   return (

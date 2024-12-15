@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   isAuthenticated: false,
-  isLoading: true,   // once see this part in 2:52:47
+  isLoading: true,   // once see this part in 2:52:47(later)
   user: null,
 };
 
@@ -23,8 +23,8 @@ export const registerUser = createAsyncThunk(
       }
       return response.data;
     } catch (error) {
-      throw error.response?.data?.message || error.message;
-    }
+      throw error.response?.data?.message || error.message; // server side async error -- error.response?.data?.message
+    }                                                       // client side other errors -- error.message
   }
 );
 
@@ -66,7 +66,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setUser: (state, action) => {},
+    setUser: (state, action) => {},  // here you can set the user the admin or user 
   },
   extraReducers: (builder) => {
     builder
